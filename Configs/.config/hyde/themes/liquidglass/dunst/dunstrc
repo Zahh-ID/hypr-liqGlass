@@ -1,0 +1,62 @@
+/* Dunst Configuration for Liquid Glass Theme */
+
+[global]
+
+frame_width = 1
+separator_height = 2
+notification_limit = 5
+startup_notification = false
+indicate_hidden = true
+discourage_startup_notifications = true
+origin = top-right
+offset = 10x10
+gap_size = 10
+corner_radius = 10 # Slightly larger corner radius for softer look
+progress_bar = true
+
+show_icons = true
+icon_position = left
+icon_size = 32 # Adjust icon size if needed
+
+font = LiquidGlassSans 10 # Use placeholder theme font
+
+format = "<b>%s</b>
+%b"
+
+/* Colors are defined per urgency level below using hex with alpha */
+
+[frame]
+color = "#50A0FACC" # Use accent1 color with alpha
+
+[text]
+color = "#E6EBF5FF" # Use foreground color
+
+[history_text]
+color = "#E6EBF5CC" # Use foreground color with slight transparency for history
+
+[urls]
+enabled = true
+
+[icons]
+
+/* Urgency Levels - Colors with Alpha (RRGGBBAA) */
+
+[urgency_low]
+background = "#12161C99" # color_bg with ~60% alpha
+foreground = "#E6EBF5FF" # color_fg
+frame = "#50A0FACC" # color_accent1 with ~80% alpha
+timeout = 6
+
+[urgency_normal]
+background = "#12161CBB" # color_bg with ~73% alpha
+foreground = "#E6EBF5FF" # color_fg
+frame = "#50A0FACC" # color_accent1 with ~80% alpha
+timeout = 10
+
+[urgency_critical]
+background = "#FF5A5AE6" # color_error with ~90% alpha
+foreground = "#E6EBF5FF" # color_fg
+frame = "#E6EBF5FF" # color_fg
+timeout = 0
+
+

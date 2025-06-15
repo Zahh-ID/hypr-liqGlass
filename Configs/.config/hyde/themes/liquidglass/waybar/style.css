@@ -1,0 +1,102 @@
+/* Waybar Style for Liquid Glass Theme */
+
+/* Import colors from the dcol file if supported by Waybar or theme loader */
+/* Alternatively, define them here based on colors.dcol */
+@define-color color_bg rgba(18, 22, 28, 0.7);
+@define-color color_fg rgba(230, 235, 245, 1.0);
+@define-color color_accent1 rgba(80, 160, 250, 0.8);
+@define-color color_accent2 rgba(100, 180, 200, 0.8);
+@define-color color_warning rgba(255, 180, 80, 0.9);
+@define-color color_error rgba(255, 90, 90, 0.9);
+
+* {
+    /* Global styles for all Waybar elements */
+    border-radius: 8px; /* Rounded corners for modules */
+    padding: 0 8px; /* Add some padding within modules */
+    font-family: sans-serif; /* Use a common sans-serif font */
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @color_bg;
+    color: @color_fg;
+    transition: 0.5s; /* Smooth transition */
+    /* Apply blur if supported by Waybar and compositor - usually compositor handles this */
+}
+
+/* Styles for individual modules */
+#workspaces {
+    background-color: @color_bg;
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @color_fg;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background-color: @color_accent2;
+}
+
+#workspaces button.focused {
+    color: @color_accent1;
+    border-bottom: 2px solid @color_accent1;
+}
+
+#workspaces button.urgent {
+    color: @color_error;
+    border-bottom: 2px solid @color_error;
+}
+
+#window {
+    background-color: @color_bg;
+    margin: 0 4px;
+    padding: 0 10px;
+}
+
+#tray {
+    background-color: @color_bg;
+    margin: 0 4px;
+    padding: 0 5px;
+}
+
+#pulseaudio {
+    background-color: @color_accent2;
+    color: @color_fg;
+    margin: 0 4px;
+}
+
+#network {
+    background-color: @color_accent2;
+    color: @color_fg;
+    margin: 0 4px;
+}
+
+#battery {
+    background-color: @color_accent2;
+    color: @color_fg;
+    margin: 0 4px;
+}
+
+/* Style for battery levels/states */
+#battery.charging, #battery.plugged {
+    color: @color_accent1;
+}
+
+#battery.critical:not(.charging) {
+    color: @color_error;
+    background-color: @color_warning; /* Highlight critical battery */
+}
+
+#clock {
+    background-color: @color_accent1; /* Use accent1 for clock */
+    color: @color_fg;
+    margin: 0 4px;
+}
+
+/* Add styles for other modules as needed */
+/* Ensure margins between modules for separation */
+

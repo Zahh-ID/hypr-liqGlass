@@ -1,0 +1,82 @@
+# Liquid Glass Theme Colors (sourced from colors.dcol by themepatcher.sh)
+
+# This file configures Hyprland aspects of the theme.
+
+# Source the colors from colors.dcol - themepatcher.sh handles this
+# $color_bg = rgba(18, 22, 28, 0.7)
+# $color_fg = rgba(230, 235, 245, 1.0)
+# $color_accent1 = rgba(80, 160, 250, 0.8)
+# $color_accent2 = rgba(100, 180, 200, 0.8)
+# $color_border_active = $color_accent1
+# $color_border_inactive = $color_bg
+
+# Apply blur and transparency (Liquid Glass Effect)
+decoration {
+    blur {
+        enabled = true
+        size = 7 # Increased blur size
+        passes = 3 # Increased blur passes
+        vibrancy = 0.15 # Slightly increased vibrancy
+        noise = 0.01 # Add a little noise for texture (optional)
+        contrast = 1.0 # Adjust contrast if needed
+    }
+    rounding = 12 # More rounding for softer corners
+    drop_shadow = true # Add subtle shadow
+    shadow_range = 20
+    shadow_render_power = 2
+    col.shadow = rgba(00000033)
+}
+
+# Set transparency for all windows (adjust value as needed)
+windowrulev2 = opacity 0.85 0.85, class:^(.*)$ # Slightly less opaque
+
+# General settings using theme colors
+general {
+    col.active_border = $color_border_active
+    col.inactive_border = $color_border_inactive
+
+    # Adjust other general settings as needed, e.g., cursor color
+    # cursor_color = $color_fg
+}
+
+# Example for borders when windows are floating
+# group {
+#   col.border_active = $color_border_active
+#   col.border_inactive = $color_border_inactive
+#   groupbar {
+#     col.active = $color_accent1
+#     col.inactive = $color_bg
+#   }
+# }
+
+# --- Theme Assets Variables (for themepatcher.sh) ---
+# Define the names of the GTK, Icon, Cursor, and Font themes.
+# You need to provide the corresponding tar archives (e.g., Gtk_LiquidGlass.tar.gz)
+# in the theme directory (Configs/.config/hyde/themes/liquidglass/).
+
+$GTK_THEME = "LiquidGlass"
+$ICON_THEME = "LiquidGlass"
+$CURSOR_THEME = "LiquidGlass"
+
+# Example Font variables (adjust as needed if you have specific fonts)
+$FONT = "LiquidGlassSans"
+# $DOCUMENT_FONT = "LiquidGlassSans"
+# $MONOSPACE_FONT = "LiquidGlassMono"
+# $BAR_FONT = "LiquidGlassSans"
+# $MENU_FONT = "LiquidGlassSans"
+# $NOTIFICATION_FONT = "LiquidGlassSans"
+
+
+# You would also need to configure other applications (Waybar, Rofi, etc.)
+# This might involve creating separate configuration files for those applications
+# within this theme directory or modifying their existing configs to source these colors.
+
+# Example: Set GTK theme (you would need a compatible GTK theme tar archive)
+# $GTK_THEME = "LiquidGlass-GTK"
+# $ICON_THEME = "LiquidGlass-Icons"
+# $CURSOR_THEME = "LiquidGlass-Cursor"
+# $FONT = "Sans-Serif"
+
+# You might define variables here for other configs to use, e.g.:
+# $WAYBAR_CONFIG = "~/.config/hyde/themes/liquidglass/waybar/config"
+# $ROFI_CONFIG = "~/.config/hyde/themes/liquidglass/rofi/config.rasi"

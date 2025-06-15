@@ -1,0 +1,148 @@
+/* Rofi Configuration for Liquid Glass Theme */
+
+configuration {
+    /* General settings */
+    show-icons: true;
+    hide-scrollbar: true;
+    /* For a clean look, you might hide default displays and use drun */
+    /* display-drun: ""; */
+    /* display-run: ""; */
+    /* display-window: ""; */
+    /* display-ssh: ""; */
+    /* display-combi: ""; */
+
+    /* Font - Use the theme font if defined, otherwise a common sans-serif */
+    font: "LiquidGlassSans 10"; /* Placeholder, replace if needed */
+
+    /* Window padding and positioning */
+    padding: 10; /* Padding around the mainbox */
+    /* Adjust location if not centered, e.g., south, north east, etc. */
+    /* location: center; */
+    /* yoffset: 0; */
+    /* xoffset: 0; */
+
+    /* Terminal to use when launching via rofi -run */
+    /* terminal: "kitty"; */
+
+    /* Color Definitions (Manual conversion from RGBA in colors.dcol) */
+    /* Rofi uses @define-color or simply defines colors in the 'color' section */
+    /* Format: #RRGGBBAA or #RGB */
+    colors {
+        /* Base Colors (converted from colors.dcol) */
+        background: #12161C; /* Corresponds to color_bg RRGGBB */
+        foreground: #E6EBF5; /* Corresponds to color_fg RRGGBB */
+        accent1: #50A0FA;    /* Corresponds to color_accent1 RRGGBB */
+        accent2: #64B4C8;    /* Corresponds to color_accent2 RRGGBB */
+        warning: #FFB450;    /* Corresponds to color_warning RRGGBB */
+        error: #FF5A5A;      /* Corresponds to color_error RRGGBB */
+
+        /* Defined colors with alpha */
+        /* Rofi color syntax: <background> , <foreground> , <border> , <separator> */
+        /* Background with transparency: RRGGBBAA */
+        background-color: @backgroundC; /* Use variable with alpha defined below */
+        text-color: @foreground;
+
+        urgent: @error; /* Urgent items color */
+        active: @accent2; /* Active items color */
+
+        /* Example using defined colors with transparency */
+        /* These variables use the Rofi color format: background, foreground, border, separator */
+        normal-element:                  @backgroundC, @foreground, @backgroundC, @backgroundC;
+        selected-normal-element:         @accent1C, @foreground, @accent1C, @accent1C; /* Use accent with alpha */
+        urgent-element:                  @errorC, @foreground, @errorC, @errorC;      /* Use error with alpha */
+        selected-urgent-element:         @errorC, @foreground, @errorC, @errorC;
+        active-element:                  @accent2C, @foreground, @accent2C, @accent2C; /* Use accent2 with alpha */
+        selected-active-element:         @accent2C, @foreground, @accent2C, @accent2C;
+
+        /* Define colors with alpha channel explicitly for elements */
+        backgroundC: #12161CBB; /* color_bg with ~73% alpha */
+        accent1C: #50A0FACC;    /* color_accent1 with ~80% alpha */
+        accent2C: #64B4C8CC;    /* color_accent2 with ~80% alpha */
+        warningC: #FFB450E6;    /* color_warning with ~90% alpha */
+        errorC: #FF5A5AE6;      /* color_error with ~90% alpha */
+    }
+
+    /* Main window box */
+    mainbox {
+        background-color: @backgroundC; /* Use the background color with alpha */
+        border: 0px; /* No solid border around the box */
+        /* border-color: @accent1; */
+        children: [ inputbar, message, listview ]; /* Arrange elements vertically */
+    }
+
+    inputbar {
+        background-color: @backgroundC; /* Use background with alpha */
+        padding: 5px;
+        children: [ prompt, entry, case-indicator ]; /* Arrange horizontally */
+    }
+
+    prompt {
+        enabled: true;
+        background-color: @accent1C; /* Use accent color with alpha for prompt */
+        text-color: @foreground;
+        padding: 6px 8px;
+        border-radius: 4px; /* Rounded corners for the prompt */
+        margin: 0 4px 0 0; /* Space between prompt and entry */
+    }
+
+    entry {
+        background-color: @backgroundC; /* Use background with alpha */
+        text-color: @foreground;
+        placeholder: "Search...";
+        padding: 6px 8px;
+        border-radius: 4px;
+    }
+
+    case-indicator {
+         background-color: @backgroundC; /* Use background with alpha */
+         text-color: @foreground;
+    }
+
+
+    message {
+        background-color: @warningC; /* Use warning color with alpha for messages */
+        text-color: @foreground;
+        padding: 5px;
+        border-radius: 4px;
+        margin: 5px 0; /* Space above and below */
+    }
+
+    /* Listview (where results are shown) */
+    listview {
+        background-color: @backgroundC; /* Use background with alpha */
+        columns: 1; /* Single column list */
+        lines: 8; /* Show 8 lines by default */
+        spacing: 2px; /* Space between elements */
+        scrollbar: false; /* Hide scrollbar */
+        padding: 0; /* No padding within the listview itself */
+        margin: 5px 0 0 0; /* Space above the listview */
+    }
+
+    /* Individual elements in the listview (application names, etc.) */
+    element {
+        background-color: @backgroundC; /* Default element background with alpha */
+        text-color: @foreground;
+        padding: 4px 8px;
+        border-radius: 4px; /* Rounded corners for elements */
+        orientation: horizontal;
+        children: [ element-icon, element-text ];
+    }
+
+    element normal.normal { background-color: @normal-element; text-color: @normal-element; }
+    element normal.urgent { background-color: @urgent-element; text-color: @urgent-element; }
+    element normal.active { background-color: @active-element; text-color: @active-element; }
+    element selected.normal { background-color: @selected-normal-element; text-color: @selected-normal-element; }
+    element selected.urgent { background-color: @selected-urgent-element; text-color: @selected-urgent-element; }
+    element selected.active { background-color: @selected-active-element; text-color: @selected-active-element; }
+
+    /* Styles for element icon and text */
+    element-icon {
+        size: 1em; /* Adjust icon size relative to font size */
+        margin: 0 5px 0 0; /* Space between icon and text */
+    }
+
+    element-text {
+        background-color: inherit; /* Inherit background from parent element */
+        text-color: inherit; /* Inherit text color from parent element */
+    }
+}

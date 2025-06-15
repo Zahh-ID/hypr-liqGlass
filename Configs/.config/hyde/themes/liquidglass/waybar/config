@@ -1,0 +1,60 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 5,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{title}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
+
+    "pulseaudio": {
+        "format": "🎧 {volume}%",
+        "format-muted": "🔇 {volume}%",
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "📶 {signalStrength}%",
+        "format-ethernet": " ethernet",
+        "format-disconnected": "Disconnected ⛔",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "battery": {
+        "format": "{icon} {percentage}%",
+        "format-charging": " चार्जिंग {percentage}%",
+        "format-plugged": " प्लग्ड इन {percentage}%",
+        "format-icons": ["🔋", " অর্ধেক", " low"],
+        "critical-at": 15
+    },
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    }
+}
